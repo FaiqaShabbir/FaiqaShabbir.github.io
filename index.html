@@ -80,16 +80,21 @@
 
     /* PROJECTS */
     .pgrid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.1rem; margin-top: 1.75rem; }
-    .pcard { background: var(--bg2); border: 0.5px solid var(--bd); border-radius: 12px; padding: 1.35rem; transition: border-color 0.2s, transform 0.2s; position: relative; overflow: hidden; }
+    .pcard { background: var(--bg2); border: 0.5px solid var(--bd); border-radius: 12px; padding: 1.35rem; transition: border-color 0.2s, transform 0.2s; position: relative; overflow: hidden; display: flex; flex-direction: column; }
     .pcard::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: var(--ac); }
     .pcard:hover { border-color: var(--ac); transform: translateY(-2px); }
     .pico { width: 42px; height: 42px; border-radius: 10px; background: var(--o100); color: var(--o700); display: flex; align-items: center; justify-content: center; font-size: 20px; margin-bottom: 0.9rem; }
     [data-theme=dark] .pico { background: rgba(249,115,22,0.18); color: var(--o300); }
     .pcard h3 { font-size: 14px; font-weight: 600; margin-bottom: 0.4rem; }
-    .pcard p { color: var(--ts); font-size: 12px; margin-bottom: 0.9rem; line-height: 1.65; }
-    .ptechs { display: flex; flex-wrap: wrap; gap: 4px; }
+    .pcard p { color: var(--ts); font-size: 12px; margin-bottom: 0.9rem; line-height: 1.65; flex: 1; }
+    .ptechs { display: flex; flex-wrap: wrap; gap: 4px; margin-bottom: 0.75rem; }
     .ptag { font-size: 11px; background: var(--o50); color: var(--o700); border: 0.5px solid var(--o200); padding: 2px 7px; border-radius: 4px; }
     [data-theme=dark] .ptag { background: rgba(249,115,22,0.09); color: var(--o400); border-color: rgba(249,115,22,0.25); }
+    .plinks { display: flex; gap: 6px; flex-wrap: wrap; margin-top: auto; }
+    .plink { display: inline-flex; align-items: center; gap: 5px; font-size: 11px; color: var(--ac); text-decoration: none; border: 0.5px solid var(--ac); padding: 3px 10px; border-radius: 99px; transition: all 0.2s; }
+    .plink:hover { background: var(--ac); color: #fff; }
+    .plink-demo { background: var(--ac); color: #fff; border-color: var(--ac); }
+    .plink-demo:hover { background: var(--ach); border-color: var(--ach); }
 
     /* EXPERIENCE */
     .tline { margin-top: 1.75rem; padding-left: 1.75rem; position: relative; }
@@ -217,42 +222,81 @@
   <p class="lbl">Portfolio</p>
   <h2>Featured projects</h2>
   <div class="pgrid">
+
+    <div class="pcard">
+      <div class="pico"><i class="ti ti-notebook" aria-hidden="true"></i></div>
+      <h3>NoteBouncer</h3>
+      <p>AI-powered note management and discovery platform built at Sapience AI — intelligent note bouncing and semantic organization for teams.</p>
+      <div class="ptechs"><span class="ptag">FastAPI</span><span class="ptag">GCP</span><span class="ptag">AI</span><span class="ptag">Next.js</span></div>
+      <div class="plinks">
+        <a href="https://notebouncer.discovery.sapienceai.co/" class="plink plink-demo" target="_blank"><i class="ti ti-external-link"></i> Live Demo</a>
+      </div>
+    </div>
+
     <div class="pcard">
       <div class="pico"><i class="ti ti-users" aria-hidden="true"></i></div>
       <h3>Member Presence</h3>
       <p>Multi-tenant networking product with row-level Postgres security, intent capture, and pgvector matching on GCP Cloud Run.</p>
       <div class="ptechs"><span class="ptag">FastAPI</span><span class="ptag">pgvector</span><span class="ptag">GCP</span><span class="ptag">Vertex AI</span><span class="ptag">Next.js</span></div>
+      <div class="plinks"></div>
     </div>
+
     <div class="pcard">
       <div class="pico"><i class="ti ti-terminal-2" aria-hidden="true"></i></div>
       <h3>Terminal Bench 2.0</h3>
       <p>Agentic coding benchmark referenced by Anthropic (Claude 4.5) — DevOps incident scenarios in air-gapped Kubernetes environments.</p>
       <div class="ptechs"><span class="ptag">Kubernetes</span><span class="ptag">Docker</span><span class="ptag">Python</span><span class="ptag">k3s</span></div>
+      <div class="plinks"></div>
     </div>
+
     <div class="pcard">
       <div class="pico"><i class="ti ti-brain" aria-hidden="true"></i></div>
       <h3>AI Knowledge Repository</h3>
-      <p>Centralized knowledge base with semantic search over curated AI research and documentation using RAG.</p>
-      <div class="ptechs"><span class="ptag">LangChain</span><span class="ptag">FAISS</span><span class="ptag">Python</span><span class="ptag">RAG</span></div>
+      <p>Centralized knowledge base with semantic search over curated AI research and documentation using RAG on GCP.</p>
+      <div class="ptechs"><span class="ptag">LangChain</span><span class="ptag">FAISS</span><span class="ptag">Python</span><span class="ptag">RAG</span><span class="ptag">GCP</span></div>
+      <div class="plinks">
+        <a href="https://dossai-127918025916.us-central1.run.app/dashboard" class="plink plink-demo" target="_blank"><i class="ti ti-external-link"></i> Live App</a>
+      </div>
     </div>
+
     <div class="pcard">
       <div class="pico"><i class="ti ti-stack-2" aria-hidden="true"></i></div>
       <h3>AI Stack Overflow Summarizer</h3>
       <p>LLM-powered tool that extracts and summarizes Stack Overflow threads into concise, context-aware developer answers.</p>
       <div class="ptechs"><span class="ptag">GPT-4</span><span class="ptag">FastAPI</span><span class="ptag">Selenium</span><span class="ptag">NLP</span></div>
+      <div class="plinks">
+        <a href="https://github.com/FaiqaShabbir/ai-stackoverflow-summarizer" class="plink" target="_blank"><i class="ti ti-brand-github"></i> GitHub</a>
+      </div>
     </div>
+
+    <div class="pcard">
+      <div class="pico"><i class="ti ti-file-text" aria-hidden="true"></i></div>
+      <h3>Creds Creator & Proposal Producer</h3>
+      <p>AI automation suite using GPT-4 + Google Slides API to generate compliant consulting proposals with a Validator agent for quality control.</p>
+      <div class="ptechs"><span class="ptag">GPT-4</span><span class="ptag">Google Slides API</span><span class="ptag">Agents</span></div>
+      <div class="plinks">
+        <a href="https://www.loom.com/share/446ec60fbfce47789c3c08dd9e5b6917" class="plink plink-demo" target="_blank"><i class="ti ti-player-play"></i> Watch Demo</a>
+      </div>
+    </div>
+
     <div class="pcard">
       <div class="pico"><i class="ti ti-report-analytics" aria-hidden="true"></i></div>
       <h3>Advisor Insight at Scale</h3>
       <p>RAG platform for context-aware financial Q&A over PDF/DOCX — 30% accuracy boost with GPT-4 + Neo4j + FAISS.</p>
       <div class="ptechs"><span class="ptag">LangChain</span><span class="ptag">FAISS</span><span class="ptag">GPT-4</span><span class="ptag">Neo4j</span></div>
+      <div class="plinks"></div>
     </div>
+
     <div class="pcard">
       <div class="pico"><i class="ti ti-eye" aria-hidden="true"></i></div>
       <h3>Helmet & License Plate Detection</h3>
       <p>Real-time CV system for construction site safety — 95% OCR accuracy and 90% NER precision with YOLOv8.</p>
       <div class="ptechs"><span class="ptag">YOLOv8</span><span class="ptag">Tesseract</span><span class="ptag">OpenCV</span><span class="ptag">Python</span></div>
+      <div class="plinks">
+        <a href="https://github.com/FaiqaShabbir/Helmet-Detection-and-License-Plate-Recognition/tree/master" class="plink" target="_blank"><i class="ti ti-brand-github"></i> GitHub</a>
+      </div>
     </div>
+
   </div>
 </section>
 
